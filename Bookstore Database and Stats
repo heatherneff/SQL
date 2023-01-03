@@ -1,0 +1,31 @@
+--Create a bookstore database
+
+CREATE TABLE Heathers_Bookstore (id INTEGER PRIMARY KEY, Name TEXT, Author TEXT, Genre TEXT, Publishing_Year INTEGER, Price REAL);
+
+INSERT INTO Heathers_Bookstore VALUES (1, "Game of Thrones", "George R.R. Martin", "Fantasy", 1996, 15.99);
+INSERT INTO Heathers_Bookstore VALUES (2, "How to Do the Work", "Dr. Nicole LePera", "Self-help", 2021, 22.99);
+INSERT INTO Heathers_Bookstore VALUES (3, "IT", "Stephen King", "Horror", 1986, 17.99);
+INSERT INTO Heathers_Bookstore VALUES (4, "Alice's Adventures in Wonderland", "Lewis Carroll", "Fantasy", 1865, 9.99);
+INSERT INTO Heathers_Bookstore VALUES (5, "The Chronicles of Narnia", "C.S. Lewis", "Fantasy", 1950, 22.49);
+INSERT INTO Heathers_Bookstore VALUES (6, "The Swiss Family Robinson", "Johann David Wyss", "Adventure Fiction", 1812, 6.95);
+INSERT INTO Heathers_Bookstore VALUES (7, "Bram Stoker's Dracula", "Bram Stoker", "Horror", 1897, 10.97);
+INSERT INTO Heathers_Bookstore VALUES (8, "To Kill a Mockingbird", "Harper Lee", "Southern Gothic", 1960, 14.39);
+INSERT INTO Heathers_Bookstore VALUES (9, "Lord of the Rings", "J.R.R. Tolkien", "Fantasy", 1954, 59.99);
+INSERT INTO Heathers_Bookstore VALUES (10, "Midnight in the Garden of Good and Evil", "John Berendt", "Non-Fiction", 1994, 14.49);
+INSERT INTO Heathers_Bookstore VALUES (11, "The Shining", "Stephen King", "Horror", 1977, 15.00);
+INSERT INTO Heathers_Bookstore VALUES (12, "JTHM", "Jhonen Vasquez", "Comic Book", 1995, 20.95);
+INSERT INTO Heathers_Bookstore VALUES (13, "The Adventures of Sherlock Holmes", "Sir Arthur Conan Doyle", "Detective Fiction", 1891, 10.00);
+INSERT INTO Heathers_Bookstore VALUES (14, "Broke Millennial", "Erin Lowry", "Self-help", 2017, 14.49);
+INSERT INTO Heathers_Bookstore VALUES (15, "The Hobbit", "J.R.R. Tolkien", "Fantasy", 1937, 14.49);
+
+--display the database
+SELECT * FROM Heathers_Bookstore;
+
+--dispaly the book name, genre, and price ordered by descending price.
+SELECT Name, Genre, Price FROM Heathers_Bookstore 
+ORDER BY price desc;
+
+--display the book name, author, and publishing year ordered by ascending year.
+SELECT Name, Author, Publishing_Year FROM Heathers_Bookstore 
+ORDER BY Publishing_Year asc;
+
