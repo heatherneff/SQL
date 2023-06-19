@@ -50,7 +50,7 @@ SELECT gender, COUNT(*) FROM marvels GROUP BY gender;
 SELECT name, gender, alignment, intelligence FROM marvels
     ORDER BY alignment;
     
---how many characters are considered good, neutral, or bad? dispaly corresponding intelligence levels for each alignment grouping
+--how many characters are considered good, neutral, or bad? display corresponding intelligence levels for each alignment grouping
 SELECT alignment, COUNT(alignment) AS "total in alignment", AVG(intelligence) AS "avg intelligence", MAX(intelligence) AS "max intelligence", MIN(intelligence) AS "min intelligence" FROM marvels
     GROUP BY alignment
     ORDER BY "total in alignment" desc;
@@ -65,4 +65,11 @@ SELECT name,
         WHEN popularity <66 THEN "Average Popularity"
         ELSE "Least Popular"
     END "Popularity"
-    FROM marvels GROUP BY Popularity
+    FROM marvels GROUP BY Popularity;
+
+--who has the highest ratings in all of the abilities (intelligence, strength, durability, energy projection, and fighting skills)?
+SELECT name FROM marvels WHERE intelligence=7 AND strength=7 AND speed=7 AND durability=7 AND energy_projection=7 AND fighting_skills=7;
+
+--who has the highest ratings in at least one of the abilities?
+SELECT name FROM marvels WHERE intelligence=7 OR strength=7 OR
+speed=7 OR durability=7 OR energy_projection=7 OR fighting_skills=7;
