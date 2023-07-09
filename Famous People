@@ -70,16 +70,23 @@ INSERT INTO married_to (person1_id, spouse_name)
 INSERT INTO married_to (person1_id, spouse_name)
     VALUES (6, "Colin Jost");
 
+--display database
 SELECT * FROM movie_stars;
+
+--display database
 SELECT * FROM featured_movies;
+
+--display database
 SELECT * FROM married_to;
 
+--what movies did the movie stars work together in?
 SELECT movie_stars.fullname, featured_movies.movie_title
     FROM featured_movies
     JOIN movie_stars
     ON movie_stars.id = featured_movies.person_id
     ORDER BY movie_title;
 
+--what movie stars are married to each other?
 SELECT a.fullname, b.fullname AS spouse_name FROM married_to
     JOIN movie_stars a
     ON married_to.person1_id = a.id
