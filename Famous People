@@ -1,0 +1,87 @@
+CREATE TABLE movie_stars (id INTEGER PRIMARY KEY, fullname TEXT, age INTEGER);
+
+INSERT INTO movie_stars (fullname, age)
+    VALUES ("Brad Pitt", 59);
+INSERT INTO movie_stars (fullname, age)
+    VALUES ("Winona Ryder", 51);
+INSERT INTO movie_stars (fullname, age)
+    VALUES ("Angelina Jolie", 48);
+INSERT INTO movie_stars (fullname, age)
+    VALUES ("Chris Evans", 42);
+INSERT INTO movie_stars (fullname, age)
+    VALUES ("Sebastian Stan", 40);
+INSERT INTO movie_stars (fullname, age)
+    VALUES ("Scarlett Johansson", 38);
+    
+CREATE TABLE featured_movies (id INTEGER PRIMARY KEY, person_id INTEGER, movie_title TEXT);
+
+INSERT INTO featured_movies (person_id, movie_title)
+    VALUES (1, "Fight Club");
+INSERT INTO featured_movies (person_id, movie_title)
+    VALUES (1, "Mr & Mrs Smith");
+INSERT INTO featured_movies (person_id, movie_title)
+    VALUES (1, "Seven");
+INSERT INTO featured_movies (person_id, movie_title)
+    VALUES (2, "Girl, Interrupted");
+INSERT INTO featured_movies (person_id, movie_title)
+    VALUES (2, "Black Swan");
+INSERT INTO featured_movies (person_id, movie_title)
+    VALUES (2, "Reality Bites");
+INSERT INTO featured_movies (person_id, movie_title)
+    VALUES (3, "Mr & Mrs Smith");
+INSERT INTO featured_movies (person_id, movie_title)
+    VALUES (3, "Girl, Interrupted");
+INSERT INTO featured_movies (person_id, movie_title)
+    VALUES (3, "Hackers");
+INSERT INTO featured_movies (person_id, movie_title)
+    VALUES (4, "Winter Soldier");
+INSERT INTO featured_movies (person_id, movie_title)
+    VALUES (4, "The Perfect Score");
+INSERT INTO featured_movies (person_id, movie_title)
+    VALUES (4, "The Iceman");
+INSERT INTO featured_movies (person_id, movie_title)
+    VALUES (5, "Winter Soldier");
+INSERT INTO featured_movies (person_id, movie_title)
+    VALUES (5, "Black Swan");
+INSERT INTO featured_movies (person_id, movie_title)
+    VALUES (5, "Monday");
+INSERT INTO featured_movies (person_id, movie_title)
+    VALUES (6, "Winter Soldier");
+INSERT INTO featured_movies (person_id, movie_title)
+    VALUES (6, "The Perfect Score");
+INSERT INTO featured_movies (person_id, movie_title)
+    VALUES (6, "Her");
+    
+CREATE TABLE married_to (id INTEGER PRIMARY KEY,
+    person1_id INTEGER,
+    person2_id INTEGER,
+    spouse_name TEXT);
+
+INSERT INTO married_to (person1_id, person2_id, spouse_name)
+    VALUES (1, 3, "Angelina Jolie");
+INSERT INTO married_to (person1_id, spouse_name)
+    VALUES (2, "not married");
+INSERT INTO married_to (person1_id, person2_id, spouse_name)
+    VALUES (3, 1, "Brad Pitt");
+INSERT INTO married_to (person1_id, spouse_name)
+    VALUES (4, "not married");
+INSERT INTO married_to (person1_id, spouse_name)
+    VALUES (5, "not married");
+INSERT INTO married_to (person1_id, spouse_name)
+    VALUES (6, "Colin Jost");
+
+SELECT * FROM movie_stars;
+SELECT * FROM featured_movies;
+SELECT * FROM married_to;
+
+SELECT movie_stars.fullname, featured_movies.movie_title
+    FROM featured_movies
+    JOIN movie_stars
+    ON movie_stars.id = featured_movies.person_id
+    ORDER BY movie_title;
+
+SELECT a.fullname, b.fullname AS spouse_name FROM married_to
+    JOIN movie_stars a
+    ON married_to.person1_id = a.id
+    JOIN movie_stars b
+    ON married_to.person2_id = b.id;
